@@ -5,11 +5,7 @@
 #include <time.h>
 #include <locale.h>
 #include <math.h>
-//Mo¿liwe terminy:
-// Poniedzia³ek 9.30-15.00
-// Wtorek 11.30-15.00
-// Œroda 9.00-15.00
-// 
+
 // (b/abs(a)x^2+1) +C
 //-----------------------------------------------------------------------------------------------------------
 void enter_field(double* x_min, double* x_max);
@@ -153,8 +149,6 @@ void read_csv_file(double* myTable, char* fileName, int sizePar, double* xmin, d
 {
 	FILE* file;
 	int ile;
-	//double* tempTab = dynamicAllocationMemory(sizePar);
-	//double tab[2];
 	file = fopen(fileName, "r");
 	if (file != NULL)
 	{

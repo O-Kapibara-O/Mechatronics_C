@@ -18,15 +18,6 @@ struct listOfPictures
 	int current;
 	int size;
 };
-/*
-char* getName()
-{
-	char name[50]="File_name";
-	printf("Enter the name of file: ");	
-	scanf("%s", name);
-	return name;
-}
-*/
 //-----------------------------------------------------------
 int read_data(FILE* file);
 void save_to_file_pgm(struct picture* argPicture);
@@ -36,7 +27,7 @@ void release_memory_of_picture(struct picture* argPicture);
 
 void salt_and_pepper(struct picture* argPicture, int percente);
 void medianFilter(struct picture* argPicture);
-void bubbleSort(int table[], int size);
+void bubbleSort(double table[], int size);
 void swap(double* number1, double* number2);
 //-----------------------------------------------------------
 int read_data(FILE* file)
@@ -334,7 +325,7 @@ void medianFilter(struct picture* argPicture)
 {
 	if (argPicture->pixels != NULL)
 	{
-		int window[9];
+		double window[9];
 
 		for (int i = 0; i < argPicture->height; i++)
 		{
@@ -483,8 +474,7 @@ void medianFilter(struct picture* argPicture)
 		printf("This picture does not exist \n");
 	}
 }
-// filter
-void bubbleSort(int table[], int size)
+void bubbleSort(double table[], int size)
 {
 	int i, j;
 	for (i = 0; i < size - 1; i++)
@@ -586,23 +576,6 @@ void printDatabase(struct listOfPictures list)
 		printf("\n");
 	}
 }
-/*
-void saveInDatabase(struct listOfPictures *database)
-{
-	
-	database->size++;
-	struct picture* temp; 
-	temp = (struct picture *)realloc(database->listOfPictures, database->size * sizeof(struct picture));
-	if (temp != NULL)
-	{
-		database->listOfPictures = temp;
-	}
-	else
-	{
-		printf("Error with realloc memorry \n");
-	}
-}
-*/
 void zwolnijdb(struct listOfPictures *db)
 {
 	db->current = db->size - 1;
@@ -662,7 +635,7 @@ int main()
 				return 0;
 				break;
 			case 1:
-				read_PGM_file(database.listOfPictures + database.current); // -------------- raczej current tutaj do +databasa
+				read_PGM_file(database.listOfPictures + database.current);
 				break;
 			case 2:
 				save_to_file_pgm(database.listOfPictures + database.current);

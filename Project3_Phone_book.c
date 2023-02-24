@@ -1,10 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-//#include<stdlib.h>
 #include <stddef.h>
 #include <string.h>
 #include <ctype.h>
-
 struct Contact {
 	char name[31];
 	char surname[51];
@@ -31,7 +29,7 @@ int add_to_the_end(struct Node** head, struct Contact contact) {
 				temporary->previous = current;
 				current->next = temporary;
 		}
-		return 0; /// all fine code
+		return 0; // all fine code
 	}
 	return -1; // error with allocation code
 }
